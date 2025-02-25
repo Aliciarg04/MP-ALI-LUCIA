@@ -157,48 +157,7 @@ void Crime::setLocation(const Coordinates & coordinates) {
 }
 
 void Crime::set(const std::string &line) {
-    if (line.empty()) {
-        throw std::runtime_error("Error: Línea vacía.");
-    }
-
-    int pos = 0, field = 0;
-    std::string data[12];
-
-    // Recorrer manualmente la línea para extraer los campos separados por comas
-    for (int i = 0; i < line.length(); i++) {
-        if (line[i] == ',' || field == 11) { // Último campo no tiene coma al final
-            if (pos > i) { 
-                throw std::runtime_error("Error: Campo vacío en la línea.");
-            }
-            data[field] = line.substr(pos, i - pos);
-            pos = i + 1;
-            field++;
-        }
-    }
-
-    // Extraer el último campo manualmente
-    //data[11] = line.substr(pos);
-
-    // Validaciones previas a la conversión
-    if (data[0].empty() || data[1].empty()) {
-        throw std::runtime_error("Error: Campos obligatorios vacíos.");
-    }
-
-    try {
-        setCounter(std::stoi(data[0]));
-        setId(data[1]);
-        setCode(data[2]);
-        setGroup(data[3]);
-        setDescription(data[4]);
-        setDistrict(data[5]);
-        setAreaReport(data[6]);
-        setShooting(data[7] == "1");
-        setDateTime(data[8]);
-        setStreet(data[9]);
-        setLocation(Coordinates(std::stof(data[10]), std::stof(data[11])));
-    } catch (const std::exception &e) {
-        throw std::runtime_error("Error en la conversión de datos: " + std::string(e.what()));
-    }
+    
 }
 
 
