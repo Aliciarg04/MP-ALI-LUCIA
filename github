@@ -1,0 +1,16 @@
+
+Pasos para subir cosas:
+
+- Tener una carpeta enlazada con github (previamente creo un repo en github)
+	* cd /carpeta a enlazar
+	* git init
+	* git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+	
+- Mantener la carpeta actualizada o añadir cambios:
+	* git add .
+	* git commit -m "Descripción del cambio"
+	* git push origin main
+	
+- Clonar en otro equipo
+	* git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+
